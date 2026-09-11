@@ -1,0 +1,20 @@
+<!-- Bagian untuk menampilkan saldo pengguna yang sedang login -->
+<div id="user-wallet" class="bg-blue-50 border border-blue-200 p-4 rounded-lg my-4 max-w-md mx-auto text-center">
+    <p class="text-gray-600">Akun: <span id="display-user" class="font-bold text-blue-800">-</span></p>
+    <p class="text-gray-600 text-lg">Saldo Anda: <span id="display-balance" class="font-bold text-green-600">Rp 0</span></p>
+</div>
+
+<script>
+    // Script otomatis membaca saldo yang diatur oleh Admin
+    window.onload = function() {
+        const lastUser = localStorage.getItem('last_user');
+        if (lastUser) {
+            const balance = localStorage.getItem('user_' + lastUser) || 0;
+            document.getElementById('display-user').innerText = lastUser;
+            document.getElementById('display-balance').innerText = 'Rp ' + parseInt(balance).toLocaleString('id-ID');
+        } else {
+            document.getElementById('display-user').innerText = 'Belum ada akun masuk';
+            document.getElementById('display-balance').innerText = 'Rp 0';
+        }
+    }
+</script>
