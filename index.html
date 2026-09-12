@@ -748,11 +748,13 @@
                             this.loggedInUser = JSON.parse(activeSession);
                             this.isLoggedIn = true;
                             
-                            // Logika saldo khusus untuk mulidin64@gmail.com (150.000) dan arifwulyanto@gmail.com (85.000)
+                            // Logika saldo khusus untuk maulanaamrullah510@gmail.com (300.000), mulidin64@gmail.com (150.000), dan arifwulyanto@gmail.com (85.000)
                             let storedBalance = localStorage.getItem('jasasosmed_user_balance_' + this.loggedInUser.email);
                             if (storedBalance === null) {
                                 let emailLower = this.loggedInUser.email.toLowerCase();
-                                if (emailLower === 'mulidin64@gmail.com') {
+                                if (emailLower === 'maulanaamrullah510@gmail.com') {
+                                    storedBalance = 300000;
+                                } else if (emailLower === 'mulidin64@gmail.com') {
                                     storedBalance = 150000;
                                 } else if (emailLower === 'arifwulyanto@gmail.com') {
                                     storedBalance = 85000;
@@ -792,7 +794,9 @@
                     // Logika saldo khusus saat pendaftaran jika email sesuai target
                     let emailLower = newAccount.email.toLowerCase();
                     let initialBalance = 0;
-                    if (emailLower === 'mulidin64@gmail.com') {
+                    if (emailLower === 'maulanaamrullah510@gmail.com') {
+                        initialBalance = 300000;
+                    } else if (emailLower === 'mulidin64@gmail.com') {
                         initialBalance = 150000;
                     } else if (emailLower === 'arifwulyanto@gmail.com') {
                         initialBalance = 85000;
@@ -821,7 +825,9 @@
                     let storedBalance = localStorage.getItem('jasasosmed_user_balance_' + this.loginEmail);
                     if (storedBalance === null) {
                         let emailLower = this.loginEmail.toLowerCase();
-                        if (emailLower === 'mulidin64@gmail.com') {
+                        if (emailLower === 'maulanaamrullah510@gmail.com') {
+                            storedBalance = 300000;
+                        } else if (emailLower === 'mulidin64@gmail.com') {
                             storedBalance = 150000;
                         } else if (emailLower === 'arifwulyanto@gmail.com') {
                             storedBalance = 85000;
