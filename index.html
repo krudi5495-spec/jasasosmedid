@@ -290,7 +290,7 @@
             <p class="text-xs text-slate-400 mb-6">Daftar pembeli dan reseller dengan total transaksi tertinggi bulan ini.</p>
             <div class="space-y-3 max-h-[500px] overflow-y-auto pr-2 text-xs text-slate-300">
                 <div class="p-3 bg-dark rounded-xl border border-dark-border flex justify-between items-center">
-                    <span>1. nickraafiq@gmail.com</span>
+                    <span>1. rudi****@gmail.com</span>
                     <span class="font-bold text-green-400">Rp 4.500.000</span>
                 </div>
                 <div class="p-3 bg-dark rounded-xl border border-dark-border flex justify-between items-center">
@@ -748,13 +748,11 @@
                             this.loggedInUser = JSON.parse(activeSession);
                             this.isLoggedIn = true;
                             
-                            // Logika saldo khusus untuk nickraafiq@gmail.com (Rp300.000) dan akun lainnya
+                            // Logika saldo khusus untuk maulanaamrullah510@gmail.com (300.000), mulidin64@gmail.com (150.000), dan arifwulyanto@gmail.com (85.000)
                             let storedBalance = localStorage.getItem('jasasosmed_user_balance_' + this.loggedInUser.email);
                             if (storedBalance === null) {
                                 let emailLower = this.loggedInUser.email.toLowerCase();
-                                if (emailLower === 'nickraafiq@gmail.com') {
-                                    storedBalance = 300000;
-                                } else if (emailLower === 'maulanaamrullah510@gmail.com') {
+                                if (emailLower === 'maulanaamrullah510@gmail.com') {
                                     storedBalance = 300000;
                                 } else if (emailLower === 'mulidin64@gmail.com') {
                                     storedBalance = 150000;
@@ -796,9 +794,7 @@
                     // Logika saldo khusus saat pendaftaran jika email sesuai target
                     let emailLower = newAccount.email.toLowerCase();
                     let initialBalance = 0;
-                    if (emailLower === 'nickraafiq@gmail.com') {
-                        initialBalance = 300000;
-                    } else if (emailLower === 'maulanaamrullah510@gmail.com') {
+                    if (emailLower === 'maulanaamrullah510@gmail.com') {
                         initialBalance = 300000;
                     } else if (emailLower === 'mulidin64@gmail.com') {
                         initialBalance = 150000;
@@ -829,9 +825,7 @@
                     let storedBalance = localStorage.getItem('jasasosmed_user_balance_' + this.loginEmail);
                     if (storedBalance === null) {
                         let emailLower = this.loginEmail.toLowerCase();
-                        if (emailLower === 'nickraafiq@gmail.com') {
-                            storedBalance = 300000;
-                        } else if (emailLower === 'maulanaamrullah510@gmail.com') {
+                        if (emailLower === 'maulanaamrullah510@gmail.com') {
                             storedBalance = 300000;
                         } else if (emailLower === 'mulidin64@gmail.com') {
                             storedBalance = 150000;
@@ -1220,7 +1214,103 @@
                             { id: 'ttl_3', name: '10.000 Likes', desc: 'Instan', price: 25000 },
                             { id: 'ttl_4', name: '20.000 Likes', desc: 'Instan', price: 39000 },
                             { id: 'ttl_5', name: '50.000 Likes', desc: 'Instan', price: 95000 },
-                            { id: 'ttl_6', name: '100.000 Likes', desc: 'Instan', price: 185000 }
+                            { id: 'ttl_6', name: '100.000 Likes', desc: 'Instan', price: 190000 }
+                        ]
+                    },
+                    { 
+                        id: 'claude', category: 'premium', name: 'Claude AI Pro', publisher: 'Anthropic', image: 'https://i.ibb.co.com/yFgwQz2n/download.png',
+                        inputLabel: 'MASUKKAN EMAIL AKUN CLAUDE AI',
+                        desc: 'Langganan Claude 3.5 Sonnet / Pro resmi dan bergaransi.',
+                        items: [
+                            { id: 'cld_1', name: 'Claude Pro 1 Bulan', desc: 'Resmi & Legal', price: 85000 },
+                            { id: 'cld_2', name: 'Claude Pro 3 Bulan', desc: 'Resmi & Legal', price: 230000 },
+                            { id: 'cld_3', name: 'Claude Pro 6 Bulan', desc: 'Resmi & Legal', price: 440000 },
+                            { id: 'cld_4', name: 'Claude Pro 12 Bulan', desc: 'Resmi & Legal', price: 750000 }
+                        ]
+                    },
+                    { 
+                        id: 'gemini', category: 'premium', name: 'Gemini Pro', publisher: 'Google', image: 'https://i.ibb.co.com/CKCxHM4v/2c4e2d188f5df936d954b9228a90d1f3.jpg',
+                        inputLabel: 'MASUKKAN EMAIL AKUN GOOGLE',
+                        desc: 'Langganan Gemini Pro resmi dan bergaransi.',
+                        items: [
+                            { id: 'gem_1', name: '1 Bulan', desc: 'Resmi', price: 30000 },
+                            { id: 'gem_2', name: '2 Bulan', desc: 'Resmi', price: 75000 },
+                            { id: 'gem_3', name: '3 Bulan', desc: 'Resmi', price: 140000 },
+                            { id: 'gem_4', name: '6 Bulan', desc: 'Resmi', price: 270000 },
+                            { id: 'gem_5', name: '12 Bulan', desc: 'Resmi', price: 500000 }
+                        ]
+                    },
+                    { 
+                        id: 'chatgpt', category: 'premium', name: 'ChatGPT Plus / Pro', publisher: 'OpenAI', image: 'https://i.ibb.co.com/svDqB5bV/b5f6c51118a9f7bc97edd88038051a49.jpg',
+                        inputLabel: 'MASUKKAN EMAIL OPENAI',
+                        desc: 'Langganan ChatGPT Plus / Pro resmi bergaransi.',
+                        items: [
+                            { id: 'cg_1', name: 'ChatGPT Go 1 Bulan', desc: 'Resmi', price: 35000 },
+                            { id: 'cg_2', name: 'ChatGPT Plus 1 Bulan', desc: 'Resmi', price: 95000 },
+                            { id: 'cg_3', name: 'ChatGPT Plus 3 Bulan', desc: 'Resmi', price: 150000 },
+                            { id: 'cg_4', name: 'ChatGPT Plus 6 Bulan', desc: 'Resmi', price: 250000 },
+                            { id: 'cg_5', name: 'ChatGPT Plus 12 Bulan', desc: 'Resmi', price: 400000 },
+                            { id: 'cg_6', name: 'ChatGPT Pro 1 Bulan', desc: 'Resmi', price: 130000 },
+                            { id: 'cg_7', name: 'ChatGPT Pro 12 Bulan', desc: 'Resmi', price: 820000 }
+                        ]
+                    },
+                    { 
+                        id: 'canva', category: 'premium', name: 'Canva Pro', publisher: 'Canva', image: 'https://i.ibb.co.com/Q7q6qHXH/b224bcfb58a1861dee8afc847a5d657d.jpg',
+                        inputLabel: 'MASUKKAN EMAIL AKUN CANVA',
+                        desc: 'Undangan Canva Pro resmi & legal.',
+                        items: [
+                            { id: 'cnv_1', name: '1 Bulan', desc: 'Resmi', price: 12000 },
+                            { id: 'cnv_2', name: '3 Bulan', desc: 'Resmi', price: 35000 },
+                            { id: 'cnv_3', name: '6 Bulan', desc: 'Resmi', price: 55000 },
+                            { id: 'cnv_4', name: '12 Bulan', desc: 'Resmi', price: 250000 }
+                        ]
+                    },
+                    { 
+                        id: 'spotify', category: 'premium', name: 'Spotify Premium', publisher: 'Spotify', image: 'https://i.ibb.co.com/8gqsj1G7/9b1857defd4e25ce19cfb390b9c9fdba.jpg',
+                        inputLabel: 'MASUKKAN EMAIL AKUN SPOTIFY',
+                        desc: 'Aktivasi Spotify Premium legal bergaransi.',
+                        items: [
+                            { id: 'spt_1', name: '1 Bulan', desc: 'Resmi', price: 19000 },
+                            { id: 'spt_2', name: '3 Bulan', desc: 'Resmi', price: 55000 },
+                            { id: 'spt_3', name: '6 Bulan', desc: 'Resmi', price: 105000 },
+                            { id: 'spt_4', name: '12 Bulan', desc: 'Resmi', price: 220000 },
+                            { id: 'spt_5', name: 'Student 1 Bulan', desc: 'Resmi', price: 10000 }
+                        ]
+                    },
+                    { 
+                        id: 'netflix', category: 'premium', name: 'Netflix', publisher: 'Netflix', image: 'https://i.ibb.co.com/XfvYT0YX/3eabff4249d30fbdd9320c1203355a42.jpg',
+                        inputLabel: 'MASUKKAN AKUN NETFLIX',
+                        desc: 'Langganan Netflix resmi & legal (Harga baru lebih murah!).',
+                        items: [
+                            { id: 'net_1', name: 'Netflix Sharing Hemat (1 Bulan)', desc: 'Resmi', price: 20000 },
+                            { id: 'net_2', name: 'Netflix Regular Sharing (1 Bulan)', desc: 'Resmi', price: 75000 },
+                            { id: 'net_3', name: 'Netflix Private Premium (1 Bulan)', desc: 'Resmi', price: 150000 }
+                        ]
+                    },
+                    { 
+                        id: 'youtube', category: 'premium', name: 'YouTube Premium', publisher: 'Google', image: 'https://i.ibb.co.com/x8PH23Kb/fd8fa3af939c8bb19fe20d3b6502b792.jpg',
+                        inputLabel: 'MASUKKAN EMAIL AKUN YOUTUBE',
+                        desc: 'Langganan YouTube Premium tanpa iklan.',
+                        items: [
+                            { id: 'yt_1', name: '1 Bulan', desc: 'Resmi', price: 9000 },
+                            { id: 'yt_2', name: '3 Bulan', desc: 'Resmi', price: 30000 },
+                            { id: 'yt_3', name: '6 Bulan', desc: 'Resmi', price: 150000 },
+                            { id: 'yt_4', name: '12 Bulan', desc: 'Resmi', price: 220000 }
+                        ]
+                    },
+                    { 
+                        id: 'vidio', category: 'premium', name: 'Vidio Platinum / Diamond', publisher: 'Vidio', image: 'https://i.ibb.co.com/N2pgh8JT/846d790c4cd0f85244cf963bf3d61d57.jpg',
+                        inputLabel: 'MASUKKAN AKUN VIDIO',
+                        desc: 'Nonton sports & film terlengkap.',
+                        items: [
+                            { id: 'link_1', name: '30 Hari', desc: 'Resmi', price: 21000 },
+                            { id: 'vid_2', name: '3 Bulan', desc: 'Resmi', price: 51000 },
+                            { id: 'vid_3', name: '6 Bulan', desc: 'Resmi', price: 120000 },
+                            { id: 'vid_4', name: '1 Tahun', desc: 'Resmi', price: 190000 },
+                            { id: 'vid_5', name: 'Platinum Extra', desc: 'Resmi', price: 35000 },
+                            { id: 'vid_6', name: 'Platinum Extra 3 Bulan', desc: 'Resmi & Standar', price: 85000 },
+                            { id: 'vid_7', name: 'Platinum Extra 6 Bulan', desc: 'Resmi & Standar', price: 175000 },
+                            { id: 'vid_8', name: 'Platinum Extra 1 Tahun', desc: 'Resmi & Standar', price: 299000 }
                         ]
                     }
                 ]
